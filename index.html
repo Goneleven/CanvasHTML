@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas - Exemplo 1 - Retângulo</title>
+</head>
+
+<body>
+    <canvas id="meuCanvas" width="200" height="100" style="border: 1px solid #000000">Seu Navegador não suporta Canvas
+        HTML5</canvas>
+
+    <br>
+
+    <canvas id="meuCanvas2" width="200" height="100" style="border: 1px solid #000000">Seu Navegador não suporta Canvas
+        HTML5</canvas>
+
+    <br>
+
+    <canvas id="meuCanvas3" width="200" height="100" style="border: 1px solid #000000">Seu Navegador não suporta Canvas
+        HTML5</canvas>
+
+    <br>
+
+    <canvas id="meuCanvas4" width="200" height="100" style="border: 1px solid #000000">Seu Navegador não suporta Canvas
+        HTML5</canvas>
+
+    <br>
+
+    <canvas id="meuCanvas5" width="300" height="400" style="border: 1px solid #000000">Seu Navegador não suporta Canvas
+        HTML5</canvas>
+
+
+
+    <script>
+        var c = document.getElementById("meuCanvas");
+
+
+        var ctx = c.getContext("2d");
+
+
+        //Ponto inicial da Linha
+        ctx.moveTo(0, 0);
+        //Ponto final da linha
+        ctx.lineTo(200, 100);
+        //Linha preenchida
+        ctx.stroke();
+
+        //________________________________________
+
+        var d = document.getElementById("meuCanvas2");
+        var ctx2 = d.getContext("2d");
+        //LINHA VERDE
+        //-caminho inicial
+        ctx2.beginPath();
+        //-largura da linha
+        ctx2.lineWidth = "5";
+        //cor da linha
+        ctx2.strokeStyle = "green";
+
+
+        //Ponto inicial da Linha
+        ctx2.moveTo(0, 35);
+        //Ponto final da linha
+        ctx2.lineTo(250, 35);
+        //Linha preenchida
+        ctx2.stroke();
+
+
+        //LINHA ROXA
+
+        ctx2.beginPath();
+        //ctx2.lineWidth ="5";
+        ctx2.strokeStyle = "purple";
+
+
+        ctx2.moveTo(100, 0);
+        ctx2.lineTo(100, 130);
+        ctx2.stroke();
+
+        //------------------TEXTO---------------------  
+
+        var e = document.getElementById("meuCanvas3");
+        var ctx3 = e.getContext("2d");
+
+
+        ctx3.font = "30px Arial";
+        ctx3.fillText("Olá Mundo", 45, 85)
+        ctx3.strokeText("Hello World", 10, 50)
+
+        //------------------Gradiente---------------------  
+        //https://www.w3schools.com/graphics/canvas_gradients.asp
+        var f = document.getElementById("meuCanvas4");
+        var ctx4 = f.getContext("2d");
+
+
+        //x inicial, y inicial. x final, y final
+        var grd = ctx4.createLinearGradient(90, 100, 200, 0);
+        grd.addColorStop(0, "red");
+        grd.addColorStop(0.75, "blue");
+        //grd.addColorStop(1, "white");
+
+        //preenchimento
+        ctx4.fillStyle = grd;
+        ctx4.fillRect(10, 10, 180, 80);
+
+        //------------------Círculo--------------------- 
+        var g = document.getElementById("meuCanvas5");
+        var ctx5 = g.getContext("2d");
+
+
+        ctx5.beginPath();
+        ctx5.arc(100, 75, 50, 0, 2 * Math.PI);
+        ctx5.stroke();
+
+
+        ctx5.beginPath();
+        ctx5.arc(150, 275, 30, 0, 2 * Math.PI);
+        ctx5.stroke();
+
+
+    </script>
+</body>
+
+</html>
